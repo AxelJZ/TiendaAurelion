@@ -60,7 +60,7 @@ def cargar_tabla_unificada_csv():
 def ejecutar_documentacion_notebook():
     try:
         base_dir = os.path.dirname(__file__)
-        notebook_path = os.path.join(base_dir, "documentación.ipynb")
+        notebook_path = os.path.join(base_dir, "SPRINT2.ipynb")
         notebook_path = os.path.normpath(notebook_path)
         print(f"🧪 Ejecutando notebook y mostrando resultados: {notebook_path}\n")
         # Intento 1: jupyter en PATH
@@ -93,7 +93,7 @@ def ejecutar_documentacion_notebook():
         print(res.stdout)
         if res.stderr:
             print("\n[stderr]\n" + res.stderr)
-        print("\n✅ Ejecución de documentación.ipynb finalizada.")
+        print("\n✅ Ejecución de SPRINT2.ipynb finalizada.")
     except subprocess.CalledProcessError as e:
         print("❌ Error al ejecutar el notebook con nbconvert.")
         print(e.stdout or "")

@@ -1,3 +1,183 @@
+# Requisitos para Ejecutar SPRINT2.ipynb
+
+## 📋 Dependencias de Software
+
+### Python
+- **Versión mínima:** Python 3.8
+- **Versión recomendada:** Python 3.10+
+
+### Paquetes Python Requeridos
+
+| Paquete | Versión Mínima | Propósito |
+|---------|----------------|----------|
+| `pandas` | 1.3.0 | Manipulación y análisis de datos |
+| `numpy` | 1.20.0 | Operaciones numéricas |
+| `matplotlib` | 3.3.0 | Visualización de gráficos |
+| `seaborn` | 0.11.0 | Gráficos estadísticos avanzados |
+| `scipy` | 1.7.0 | Análisis estadístico (Shapiro-Wilk, D'Agostino-Pearson) |
+| `openpyxl` | 3.0.0 | Lectura/escritura de archivos Excel (.xlsx) |
+| `jupyter` | 1.0.0 | Entorno interactivo para notebooks |
+| `ipython` | 7.0.0 | Ambiente de notebook mejorado |
+
+### Instalación Recomendada
+
+```bash
+# Opción 1: Instalar todos los paquetes con pip
+pip install pandas>=1.3.0 numpy>=1.20.0 matplotlib>=3.3.0 seaborn>=0.11.0 scipy>=1.7.0 openpyxl>=3.0.0 jupyter>=1.0.0 ipython>=7.0.0
+
+# Opción 2: Usar archivo requirements.txt (si está disponible)
+pip install -r requirements.txt
+
+# Opción 3: Usar Conda (alternativa)
+conda create -n tienda_aurelion python=3.10 pandas numpy matplotlib seaborn scipy openpyxl jupyter ipython
+conda activate tienda_aurelion
+```
+
+## 💾 Recursos Computacionales Recomendados
+
+| Recurso | Mínimo | Recomendado |
+|---------|--------|-------------|
+| **RAM** | 2 GB | 4 GB |
+| **Almacenamiento** | 500 MB | 1 GB |
+| **CPU** | 1 núcleo | 2+ núcleos |
+| **Tiempo de ejecución** | ~5-10 min | ~2-5 min |
+
+## 📁 Estructura de Carpetas Requerida
+
+```
+SPRINT2/
+├── README.md                          (Este archivo)
+├── INFORME_TECNICO.md                 (Documentación técnica completa)
+├── notebooks/
+│   ├── Programa.py                    (Script principal con menú)
+│   ├── SPRINT1.ipynb                  (Documentación del Sprint 1)
+│   └── SPRINT2.ipynb                  (Análisis estadístico completo)
+└── database/
+    ├── productos.xlsx                 (Catálogo de 100 productos)
+    ├── clientes.xlsx                  (Base de 100 clientes)
+    ├── ventas.xlsx                    (120 transacciones)
+    ├── detalle_ventas.xlsx            (300+ líneas de detalle)
+    └── tabla_unificada.csv            (Generado por SPRINT2.ipynb)
+```
+
+## 🚀 Cómo Ejecutar SPRINT2.ipynb
+
+### Opción 1: Jupyter Notebook (Interfaz Gráfica)
+
+```bash
+# Navegar a la carpeta de notebooks
+cd SPRINT2/notebooks
+
+# Iniciar Jupyter
+jupyter notebook
+
+# En el navegador, abrir SPRINT2.ipynb
+# Ejecutar celdas secuencialmente con Shift+Enter
+```
+
+### Opción 2: Jupyter Lab (Interfaz Mejorada)
+
+```bash
+cd SPRINT2/notebooks
+jupyter lab SPRINT2.ipynb
+```
+
+### Opción 3: Ejecutar desde Terminal (nbconvert)
+
+```bash
+cd SPRINT2/notebooks
+jupyter nbconvert --to notebook --execute SPRINT2.ipynb --output SPRINT2_ejecutado.ipynb
+```
+
+### Opción 4: Usar el Programa Principal
+
+```bash
+cd SPRINT2/notebooks
+python Programa.py
+
+# Seleccionar opción 6 del menú para cargar y ejecutar SPRINT2.ipynb
+```
+
+## ⚠️ Notas Importantes
+
+### Datos Sintéticos
+- Los datos utilizados en SPRINT2.ipynb son **sintéticos educativos**, generados por Guayerd e IBM.
+- No representan datos reales de una tienda.
+- Son útiles para prácticas de análisis y visualización de datos.
+
+### Primera Ejecución
+- La **primera ejecución tardará más tiempo** ya que se generará la tabla unificada (tabla_unificada.csv).
+- Ejecuciones posteriores usarán el CSV en caché y serán más rápidas.
+
+### Manejo de Rutas
+- El script asume que está en `SPRINT2/notebooks/`
+- Los archivos Excel se buscan en `SPRINT2/database/`
+- Asegurate que la estructura de carpetas sea correcta antes de ejecutar.
+
+### Compatibilidad de Sistemas Operativos
+- ✅ Windows: totalmente compatible
+- ✅ macOS: totalmente compatible
+- ✅ Linux: totalmente compatible (instala `python3-tk` si tienes problemas con matplotlib)
+
+## 🧪 Validación de Instalación
+
+Para verificar que todos los paquetes estén instalados correctamente, ejecuta:
+
+```python
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy.stats import shapiro, normaltest
+import openpyxl
+from IPython.display import display
+
+print("✅ Todas las librerías están instaladas correctamente")
+```
+
+## 📊 Salida Esperada
+
+Al ejecutar SPRINT2.ipynb correctamente, deberías obtener:
+
+1. **Análisis descriptivo** de variables numéricas (media, mediana, desviación estándar)
+2. **Matriz de correlaciones** entre cantidad, precio y importe
+3. **Gráficos** de distribuciones e histogramas
+4. **Detección de outliers** usando método IQR
+5. **Tabla unificada** guardada en `database/tabla_unificada.csv`
+6. **Resumen automático** con conclusiones sobre medios de pago
+
+## 🐛 Solución de Problemas
+
+### Error: "ModuleNotFoundError: No module named 'pandas'"
+```bash
+pip install pandas
+```
+
+### Error: "No such file or directory: '../database/productos.xlsx'"
+- Verifica que los archivos Excel estén en `SPRINT2/database/`
+- Comprueba que la ruta relativa sea correcta desde `notebooks/`
+
+### Error: "No module named 'IPython'"
+```bash
+pip install ipython
+```
+
+### Jupyter no inicia
+```bash
+pip install --upgrade jupyter
+jupyter --version
+```
+
+## 📞 Contacto y Soporte
+
+Para reportar problemas o sugerencias, incluye:
+- Versión de Python: `python --version`
+- Versión de Jupyter: `jupyter --version`
+- Error exacto recibido
+- Sistema operativo
+
+---
+
 # Informe Técnico Integral: Análisis de Datos de Tienda Aurelion
 ## SPRINT 2 - Limpieza, Unificación y Análisis Estadístico
 
@@ -813,5 +993,3 @@ mes: Período mensual derivado (period, para análisis temporal)
 **Autor:** Equipo de Análisis de Datos - Sprint 2  
 **Estado:** ✅ Finalizado  
 **Versión:** 1.0
-
----
