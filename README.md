@@ -813,6 +813,5 @@ mes: Período mensual derivado (period, para análisis temporal)
 **Autor:** Equipo de Análisis de Datos - Sprint 2  
 **Estado:** ✅ Finalizado  
 **Versión:** 1.0
-**Copyright María Victoria**
 
 ---
